@@ -1,0 +1,28 @@
+# Pings IndexNow after every deploy so Bing (and engines that share the
+# IndexNow network, e.g. Yandex, Seznam, Naver) recrawl promptly.
+# DuckDuckGo largely sources from Bing's index, so it benefits indirectly.
+# Google and Brave do not use IndexNow; they discover via sitemap/crawl.
+name: Notify IndexNow
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for GitHub Pages deploy
+        run: sleep 90
+
+      - name: Ping IndexNow
+        run: |
+          curl -s -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d '{
+              "host": "puppetplayers.org",
+              "key": "d811b3e704c646bda997f0b956adff03",
+              "keyLocation": "https://puppetplayers.org/d811b3e704c646bda997f0b956adff03.txt",
+              "urlList": ["https://puppetplayers.org/"]
+            }' -w "\nHTTP %{http_code}\n"
