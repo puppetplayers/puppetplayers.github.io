@@ -184,7 +184,10 @@
         The Puppet Players
         <picture>
           <source type="image/webp" srcset="media/puppet_characters.webp">
-          <img src="media/puppet_characters.png" class="nav-characters" alt="Puppet characters" loading="eager" decoding="async" width="120" height="53">
+          <picture>
+            <source type="image/webp" srcset="media/puppet_characters.webp">
+            <img src="media/puppet_characters.png" class="nav-characters" alt="Puppet characters" loading="eager" decoding="async" width="120" height="53">
+          </picture>
         </picture>
       </a>
       <a href="#contact" class="nav-cta-mobile" aria-label="Request a show" data-umami-event="cta-click" data-umami-event-cta="request-show" data-umami-event-location="nav-mobile">Request a Show</a>
@@ -207,8 +210,9 @@
   <!-- ==== SECTION 3: HERO ==== -->
   <header class="hero" id="hero">
     <video class="hero-video" autoplay loop muted playsinline preload="metadata" fetchpriority="high" poster="media/frame.webp" width="1920" height="1080">
-      <source src="media/pptpmaingif2.webm" type="video/webm">
+      <!-- mp4 listed first: universally supported and 2.6x smaller than this webm encode -->
       <source src="media/pptpmaingif2.mp4" type="video/mp4">
+      <source src="media/pptpmaingif2.webm" type="video/webm">
     </video>
        <div class="hero-content">
       <h1>A Timeless Tradition.</h1>
@@ -393,8 +397,8 @@
             <div class="crew-portrait-stage">
               <button type="button" class="crew-bubble" id="bubble-aurora" aria-expanded="false" aria-controls="crewBioModal" aria-haspopup="dialog" data-target="bio-aurora">
                 <video class="crew-portrait crew-portrait-video" loop muted playsinline preload="none" aria-label="Animated portrait of Aurora, Puppeteer">
-                  <source src="media/auroragif2.webm" type="video/webm">
                   <source src="media/auroragif2.mp4" type="video/mp4">
+                  <source src="media/auroragif2.webm" type="video/webm">
                 </video>
               </button>
               <img class="curtain-frame" src="media/curtain_frame.png" alt="" aria-hidden="true" draggable="false" loading="lazy" decoding="async" width="252" height="268">
@@ -407,8 +411,8 @@
             <div class="crew-portrait-stage">
               <button type="button" class="crew-bubble" id="bubble-kylie" aria-expanded="false" aria-controls="crewBioModal" aria-haspopup="dialog" data-target="bio-kylie">
                 <video class="crew-portrait crew-portrait-video" loop muted playsinline preload="none" aria-label="Animated portrait of Kylie, Puppeteer">
-                  <source src="media/kyliegif.webm" type="video/webm">
                   <source src="media/kyliegif.mp4" type="video/mp4">
+                  <source src="media/kyliegif.webm" type="video/webm">
                 </video>
               </button>
               <img class="curtain-frame" src="media/curtain_frame.png" alt="" aria-hidden="true" draggable="false" loading="lazy" decoding="async" width="252" height="268">
